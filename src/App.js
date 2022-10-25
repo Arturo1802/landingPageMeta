@@ -8,12 +8,15 @@ import VrArea from './components/VrArea';
 
 function App() {
   return (
-    <div className='centrado' >  
-      <span>Clic derecho: Arrastrar modelo<br/></span>
-      <span> Clic izquierdo: Rotar modelo<br/></span>
-      <span>Boton centrado: Zoom<br/></span>
+    <div className='bg-dark'>  
+       
+      <p className=''>Clic derecho: Arrastrar modelo<br/></p>
+      <p> Clic izquierdo: Rotar modelo<br/></p>
+      <p>Boton centrado: Zoom<br/></p>
+       
+      
       <Canvas className='canvas'> 
-        <OrbitControls autoRotate="true" autoRotateSpeed="19"/>
+        <OrbitControls autoRotate="true" autoRotateSpeed="4"/>
         <spotLight intensity={0.8} angle={1} penumbra={1} position={[15, 60, 0]} castShadow />
         <spotLight intensity={0.8} angle={1} penumbra={1} position={[500, 0, 500]} castShadow />
 
@@ -24,7 +27,7 @@ function App() {
       <div >
       <VrArea />
       </div>
-      <span>META LEARNING UNIVERSITY </span>
+      <p>META LEARNING UNIVERSITY </p>
     </div>
   );
 }
