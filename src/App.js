@@ -5,6 +5,7 @@ import Model from './components/Meta.js'
 import { OrbitControls } from '@react-three/drei'; 
 import VrArea from './components/VrArea';
 
+
 function App() {
   return (
     <div className='main' >  
@@ -12,8 +13,8 @@ function App() {
       <span className='medio'> Clic izquierdo: Rotar modelo<br/></span>
       <span className='medio'>Boton medio: Zoom<br/></span>
       <Canvas className='canvas'> 
-        <OrbitControls/>
-        <spotLight intensity={0.8} angle={1} penumbra={1} position={[5, 60, 15]} castShadow />
+        <OrbitControls autoRotate="true" autoRotateSpeed="10"/>
+        <spotLight intensity={0.8} angle={1} penumbra={1} position={[15, 60, 0]} castShadow />
         <Suspense>
         <Model/>
         </Suspense>
