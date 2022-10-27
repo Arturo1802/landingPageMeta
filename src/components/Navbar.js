@@ -19,7 +19,7 @@ function Navbar() {
  
 
   return (
-    <AppBar  color="primary" position="sticky">
+    <AppBar  color="secondary" position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
