@@ -1,25 +1,28 @@
-import * as React from 'react'; 
-import IconButton from '@mui/material/IconButton'; 
-import MenuIcon from '@mui/icons-material/Menu';  
-import {MenuItem, Tooltip , Button, Avatar,Container,Menu, Typography,Toolbar,Box, AppBar } from '@mui/material';
+import * as React from 'react';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { MenuItem, Tooltip, Button, Avatar, Container, Menu, Typography, Toolbar, Box, AppBar } from '@mui/material';
 
 
-const pages = ['¿Por qué MLU?', 'Oferta Educativa', 'Edutainers','Beneficios']; 
+const pages = ['¿Por qué MLU?', 'Oferta Educativa', 'Edutainers', 'Beneficios'];
 
 function Navbar() {
   const [anchorElement, setanchorElement] = React.useState(null);
-   
+  const [login,setLogin] = React.useState(null);
+
+  const loginM = ()=>{
+    setLogin(true);
+  }
   const handleOpenNavMenu = (event) => {
     setanchorElement(event.currentTarget);
   }; 
-
   const handleCloseNavMenu = () => {
     setanchorElement(null);
   };
- 
+
 
   return (
-    <AppBar  color="secondary" position="sticky">
+    <AppBar color="secondary" position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -37,7 +40,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-             
+
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -52,22 +55,9 @@ function Navbar() {
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
-              anchorEl={anchorElement}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElement)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
+              id="menu-appbar" anchorEl={anchorElement} anchorOrigin={{ vertical: 'bottom', horizontal: 'left', }}
+              keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right', }} open={Boolean(anchorElement)} onClose={handleCloseNavMenu}
+              sx={{ display: { xs: 'block', md: 'none' }, }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
@@ -75,8 +65,10 @@ function Navbar() {
                 </MenuItem>
               ))}
             </Menu>
+            {//Menu (texto desplegable )
+            }
           </Box>
-           
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -84,16 +76,23 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                 <Typography sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'ubuntu', fontWeight: 600,
-              letterSpacing: '0rem', color: 'inherit', textDecoration: 'none', }} textAlign="center">
-                {page}</Typography>
+                <Typography sx={{
+                  mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'ubuntu', fontWeight: 600,
+                  letterSpacing: '0rem', color: 'inherit', textDecoration: 'none',
+                }} textAlign="center">
+                  {page}</Typography>
               </Button>
             ))}
-          </Box> 
-          <Box sx={{ flexGrow: 0 }}>
-             <Button>Contactar</Button>
-             <Button>Iniciar sesión</Button>
-
+          </Box>
+          {
+            //Navbar items
+          }
+          {
+            //Button box
+          }
+          <Box>
+            <Button style={{color:'white',}}>Contactar</Button>
+            {login ? <>???</> :<Button style={{color:'white',}}>Iniciar sesión</Button>}
           </Box>
         </Toolbar>
       </Container>

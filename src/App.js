@@ -8,21 +8,23 @@ import Navbar from './components/Navbar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Container } from '@mui/system';
 import { Grid, Typography } from '@mui/material';
-const theme = createTheme({
+const theme  = createTheme({
   palette: {
     secondary: {
-      main: '#001245'
+      main: '#001255'
+    },
+    primary: {
+      main: '#000000'
     }
   }
 
-});
-
+}); 
 function App() {
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} >
       <Navbar></Navbar>
-      <Grid container>
+      <Grid    container>
         <Grid sx={{
           marginTop:20,
           fontFamily:'ubuntu',
@@ -40,13 +42,11 @@ function App() {
 
           
         </Grid>
-        <Grid sx={{
-          marginTop:9, 
-        }} item md={5} >
-          <Canvas className='canvas'>
+        <Grid sx={{ marginTop:9,  border:1 , borderColor:'#FFFFFFF', borderRadius:4,  }} item sm={12} md={5} >
+          <Canvas style={{border:1, borderRadius:12, borderColor:'#FFFFFF'}} className='canvas'>
             <OrbitControls autoRotate="true" autoRotateSpeed="8" />
-            <spotLight intensity={5} angle={2} penumbra={1} position={[0.3, 0.5, 1.4]} castShadow />
-            <spotLight intensity={3} angle={-1} penumbra={1} position={[-5, -5, -5]} castShadow />
+            <spotLight intensity={200} angle={2} penumbra={1} position={[0.3, 0.5, 1.4]} castShadow />
+            <spotLight intensity={200} angle={-1} penumbra={1} position={[-5, -5, -5]} castShadow />
             <Suspense>
               <Model />
             </Suspense>
