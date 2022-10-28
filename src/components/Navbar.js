@@ -37,7 +37,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+             
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -84,7 +84,9 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                 <Typography sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'ubuntu', fontWeight: 600,
+              letterSpacing: '0rem', color: 'inherit', textDecoration: 'none', }} textAlign="center">
+                {page}</Typography>
               </Button>
             ))}
           </Box> 

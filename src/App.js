@@ -14,7 +14,7 @@ const theme = createTheme({
       main: '#001245'
     }
   }
-  
+
 });
 
 function App() {
@@ -22,37 +22,31 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Navbar></Navbar>
-      <Grid>
-        
-        <Grid item md={6}>
+      <Grid container>
+        <Grid sx={{
+          marginTop:20,
+          fontFamily:'ubuntu',
+        }} item md={5}>
           <Container fixed>
             <Box>
-            <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 1000,
-              letterSpacing: '0rem',
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Meta Learning 
-            <br></br>University
-          </Typography>
+              <Typography variant="h6" noWrap component="a" href="/"
+                sx={{ mr: 0, display: { xs: 'none', md: 'flex' }, fontFamily: 'ubuntu',
+                  fontWeight: 1000, letterSpacing: '.1rem',
+                  color: 'white', textDecoration: 'none', }} >
+                <img src={require('./components/METALEARNING.png')} />
+              </Typography>
             </Box>
           </Container>
+
+          
         </Grid>
-        <Grid item md={6} >
+        <Grid sx={{
+          marginTop:9, 
+        }} item md={5} >
           <Canvas className='canvas'>
-            <OrbitControls autoRotate="true" autoRotateSpeed="0" />
+            <OrbitControls autoRotate="true" autoRotateSpeed="8" />
             <spotLight intensity={5} angle={2} penumbra={1} position={[0.3, 0.5, 1.4]} castShadow />
-            <spotLight intensity={0.8} angle={0} penumbra={1} position={[-5, -5, -5]} castShadow />
+            <spotLight intensity={3} angle={-1} penumbra={1} position={[-5, -5, -5]} castShadow />
             <Suspense>
               <Model />
             </Suspense>
