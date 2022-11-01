@@ -4,45 +4,48 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { MenuItem, Tooltip, Button, Avatar, Container, Menu, Typography, Toolbar, Box, AppBar } from '@mui/material';
 
 
-const pages = ['¿Por qué MLU?', 'Oferta Educativa', 'Edutainers', 'Beneficios'];
-
+const titles = ['Nosotros', 'Oferta Educativa', 'Edutainers', 'Beneficios'];
+const button1 = {
+  mr: 0,
+  display: { xs: 'flex', md: 'flex' },
+  fontFamily: 'ubuntu',
+  fontWeight: 500,
+  letterSpacing: '0rem',
+  color: 'inherit',
+  textDecoration: 'none',
+}
+const button2 = {
+  mr: 0,
+  display: { xs: 'flex', md: 'flex' },
+  fontFamily: 'ubuntu',
+  fontWeight: 500,
+  letterSpacing: 'rem',
+  color: '#001245',
+  textDecoration: 'none',
+}
 function Navbar() {
   const [anchorElement, setanchorElement] = React.useState(null);
-  const [login,setLogin] = React.useState(null);
+  const [login, setLogin] = React.useState(null);
 
-  const loginM = ()=>{
+  const loginM = () => {
     setLogin(true);
   }
   const handleOpenNavMenu = (event) => {
-    setanchorElement(event.currentTarget);
-  }; 
+    setanchorElement(event.currentTarget); 
+
+  };
   const handleCloseNavMenu = () => {
     setanchorElement(null);
   };
 
 
   return (
-    <AppBar color="secondary" position="sticky">
-      <Container maxWidth="xl">
+    <AppBar color="secondary" position="sticky" sx={{ width: "100%" , maxHeight:80 }}>
+      <Container sx={{ width: "100%" }} >
+        {
+          //Menu (texto desplegable)
+        }
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-
-          </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -59,28 +62,30 @@ function Navbar() {
               keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right', }} open={Boolean(anchorElement)} onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' }, }}
             >
-              {pages.map((page) => (
+              {titles.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
-            {//Menu (texto desplegable )
-            }
+
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {titles.map((page) => (
+
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
+                href="#"
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Typography sx={{
+                <Typography className='textGrad' sx={{
                   mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'ubuntu', fontWeight: 600,
                   letterSpacing: '0rem', color: 'inherit', textDecoration: 'none',
                 }} textAlign="center">
-                  {page}</Typography>
+                  {page}
+                </Typography>
               </Button>
             ))}
           </Box>
@@ -90,12 +95,15 @@ function Navbar() {
           {
             //Button box
           }
-          <Box>
-            <Button style={{color:'white',}}>Contactar</Button>
-            {login ? <>???</> :<Button style={{color:'white',}}>Iniciar sesión</Button>}
+          <Box sx={{ marginRight: { xs: 0, md: '15%' }, display:"flex" }}>
+            <Button style={{ color: 'white', border: "2px solid white", borderRadius: 10, marginRight: 25 }}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
+            {login ? <>Sesion iniciada(?)</> : <Button style={{ backgroundColor: "white", borderRadius: 10 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>}
+
           </Box>
         </Toolbar>
+
       </Container>
+
     </AppBar>
   );
 }
