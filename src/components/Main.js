@@ -24,7 +24,7 @@ const Main = () => {
       </Grid>
       <Grid sx={{  marginLeft: { xs: "20% ", md: 10 },
         marginTop: 20,
-        marginBottom:10, marginTop: 9, border: 5, borderColor: 'rgba(40,100,255,.3)', borderRadius: 4, height: { xs: 300, md: 500 } }} item sm={12} md={5} >
+        marginBottom:10,  border: 5, borderColor: 'rgba(40,100,255,.0)', borderRadius: 4, height: { xs: 300, md: 500 } }} item sm={12} md={5} >
         <Canvas   style={{ borderRadius: 12, }} className='canvas'>
           <OrbitControls autoRotate="true" autoRotateSpeed="8" />
           <spotLight intensity={200} angle={2} penumbra={0} position={[0.3, 0.5, 1.4]} castShadow />
@@ -34,11 +34,7 @@ const Main = () => {
           </Suspense>
         </Canvas>
         
-      </Grid>
-
-      <Grid >
-        
-      </Grid>
+      </Grid> 
     </Grid>
   )
 }

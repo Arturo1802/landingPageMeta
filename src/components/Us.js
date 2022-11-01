@@ -3,8 +3,10 @@ import React from 'react'
 
 const Us = () => {
   return (
-    <Grid>
-        
+    <Grid container>
+        <Grid item >
+
+        </Grid>
     </Grid>
   )
 }

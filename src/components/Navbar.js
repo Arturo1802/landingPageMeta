@@ -96,8 +96,8 @@ function Navbar() {
             //Button box
           }
           <Box sx={{ marginRight: { xs: 0, md: '15%' }, display:"flex" }}>
-            <Button style={{ color: 'white', border: "2px solid white", borderRadius: 10, marginRight: 25 }}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
-            {login ? <>Sesion iniciada(?)</> : <Button style={{ backgroundColor: "white", borderRadius: 10 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>}
+            <Button style={{ color: 'white', border: "2px solid white", borderRadius: 15, marginRight: 60, paddingLeft: 20, paddingRight:23}}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
+            {login ? <>Sesion iniciada(?)</> : <Button style={{ backgroundColor: "white", borderRadius: 15, paddingLeft: 20, paddingRight:23 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>}
 
           </Box>
         </Toolbar>
