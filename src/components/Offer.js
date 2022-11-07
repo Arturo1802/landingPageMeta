@@ -28,7 +28,7 @@ const Offer = () => {
     <Grid container>
       <Grid sx={{
         marginLeft: { xs: "20% ", md: 10 },
-        marginTop: { xs: 10, md: 10 },
+        marginTop: { xs: 10, md: 35 },
         marginBottom: 10
       }} item sm={12} md={3}>
         <Typography variant="h3" sx={{
@@ -56,10 +56,9 @@ const Offer = () => {
           ref={el => (reactSwipeEl = el)} >
           {
             carreras.map((item) => (
-              <Card sx={{ backgroundColor: 'rgba(0, 0, 0, 0.0)', color: "black",borderRadius:15, }}>
+              <Card sx={{ backgroundColor: 'rgba(0, 0, 0, 0.0)', color: "black",borderRadius:15, width:'30vw' }}>
                 <CardMedia
-                  component="img" 
-                  height="600"
+                  component="img"   
                   image={item.imagen}
                   alt={item.nombre}
                 />
