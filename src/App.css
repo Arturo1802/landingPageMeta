@@ -27,8 +27,8 @@
 }
 h1{
   font-size: 72px;
-  background: -webkit-linear-gradient(0deg,#3178FA  30.26%, #0AB1FA 100%);
-  background-clip: inherit;;
+  background: -webkit-linear-gradient(30deg,#3178FA  30.26%, #0AB1FA 100%);
+  background-clip: inherit;
   -webkit-background-clip: text;
   font-family: 'Ubuntu';
   font-weight: 400;

@@ -4,25 +4,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { MenuItem, Tooltip, Button, Avatar, Container, Menu, Typography, Toolbar, Box, AppBar } from '@mui/material';
 
 
-const titles = ['Nosotros', 'Oferta Educativa', 'Edutainers', 'Beneficios'];
 const button1 = {
-  mr: 0,
-  display: { xs: 'flex', md: 'flex' },
+  mr: 0, 
   fontFamily: 'ubuntu',
   fontWeight: 500,
   letterSpacing: '0rem',
   color: 'inherit',
-  textDecoration: 'none',
+  textDecoration: 'none', 
 }
 const button2 = {
-  mr: 0,
-  display: { xs: 'flex', md: 'flex' },
+  mr: 0, 
   fontFamily: 'ubuntu',
   fontWeight: 500,
   letterSpacing: 'rem',
   color: '#001245',
   textDecoration: 'none',
 }
+const titles = ['Nosotros', 'Oferta Educativa', 'Edutainers', 'Beneficios'];
+
 function Navbar() {
   const [anchorElement, setanchorElement] = React.useState(null);
   const [login, setLogin] = React.useState(null);
@@ -31,7 +30,7 @@ function Navbar() {
     setLogin(true);
   }
   const handleOpenNavMenu = (event) => {
-    setanchorElement(event.currentTarget); 
+    setanchorElement(event.currentTarget);
 
   };
   const handleCloseNavMenu = () => {
@@ -40,7 +39,7 @@ function Navbar() {
 
 
   return (
-    <AppBar color="secondary" position="sticky" sx={{ width: "100%" , maxHeight:80 }}>
+    <AppBar color="secondary" position="sticky" sx={{ width: "100%", maxHeight: 80 }}>
       <Container sx={{ width: "100%" }} >
         {
           //Menu (texto desplegable)
@@ -48,10 +47,7 @@ function Navbar() {
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
+              size="large" 
               onClick={handleOpenNavMenu}
               color="inherit"
             >
@@ -63,14 +59,13 @@ function Navbar() {
               sx={{ display: { xs: 'block', md: 'none' }, }}
             >
               {titles.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page}  onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
 
-          </Box>
-
+          </Box> 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {titles.map((page) => (
 
@@ -95,9 +90,11 @@ function Navbar() {
           {
             //Button box
           }
-          <Box sx={{ marginRight: { xs: 0, md: '15%' }, display:"flex" }}>
-            <Button style={{ color: 'white', border: "2px solid white", borderRadius: 15, marginRight: 60, paddingLeft: 20, paddingRight:23}}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
-            {login ? <>Sesion iniciada(?)</> : <Button style={{ backgroundColor: "white", borderRadius: 15, paddingLeft: 20, paddingRight:23 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>}
+          <Box sx={{ marginRight: { xs: 0, md: '0%' }, display: "inline-block" }}>
+            <Button  style={{ color: 'white',border: "2px solid white", borderRadius: 15, marginRight: 20, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
+            {
+              login ? <>Sesion iniciada(?)</> : <Button style={{boxShadow: " 4px 4px 10px 5px #00B2FF40", backgroundColor: "white", borderRadius: 15, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>
+            }
 
           </Box>
         </Toolbar>
