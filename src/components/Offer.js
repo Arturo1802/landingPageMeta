@@ -1,6 +1,8 @@
 import { Diversity1 } from '@mui/icons-material'
-import { Typography, Grid, Divider, Chip, Card, CardContent, CardActionArea, CardMedia } from '@mui/material'
+import { Typography, Grid, Divider, Chip, Card, CardContent, CardActionArea, CardMedia, Button } from '@mui/material'
 import React from 'react'
+import ArrowBackIcon  from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon  from '@mui/icons-material/ArrowForward';
 import ReactSwipe from 'react-swipe';
 
 const carreras = [
@@ -21,7 +23,13 @@ const carreras = [
   }
 ]
 
+const slideButton={
+  borderRadius:55,
+  background: 'radial-gradient(#2465C8, #7624C8)', 
+  paddingTop:'15px',
+  paddingBottom:'15px',
 
+}
 const Offer = () => {
   let reactSwipeEl;
   return (
@@ -42,8 +50,11 @@ const Offer = () => {
         <Divider style={{ marginLeft: { sm: "0px", md: "-30%" }, marginBottom: "5vh" }}>
           <Chip sx={{ height: 5, width: "250px", background: "-webkit-linear-gradient(180deg,#0587FF  30.26%, #2056A6 100%);" }} label="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" />
         </Divider>
-        <button onClick={() => reactSwipeEl.next()}>Next</button>
-        <button onClick={() => reactSwipeEl.prev()}>Previous</button>
+        <div style={{textAlign:'center'}}>
+        <Button style={slideButton} onClick={() => reactSwipeEl.prev()}><ArrowBackIcon sx={{height:'35px',color:'white'}}/></Button>
+        <span>&nbsp;</span>
+        <Button style={slideButton}  onClick={() => reactSwipeEl.next()}><ArrowForwardIcon sx={{height:'35px',color:'white'}}/></Button>
+        </div>
       </Grid>
       <Grid item sm={0} md={2}>
 

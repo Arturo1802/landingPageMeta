@@ -3,7 +3,7 @@ import React from 'react'
 import { Grid } from '@mui/material'
 const Benefits = () => {
   return (
-    <Grid sx={{marginTop:10}} container>
+    <Grid sx={{ marginTop: 10 }} container>
       <Grid item md={12}>
         <Typography variant="h3" sx={{
           fontFamily: 'ubuntu',
@@ -17,7 +17,26 @@ const Benefits = () => {
           <Chip sx={{ height: 5, background: "-webkit-linear-gradient(180deg,#0587FF  30.26%, #2056A6 100%);" }} label="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" />
         </Divider>
       </Grid>
+      <Grid container>
+        <Grid item sx={{}} sm={1} md={ 1}>
 
+        </Grid>
+        <Grid item sx={{}} sm={1} md={1}>
+
+        </Grid>
+        <Grid item sx={{}} sm={1} md={1}>
+
+        </Grid>
+        <Grid item sx={{}} sm={1} md={1}>
+
+        </Grid>
+        <Grid item sx={{}} sm={1} md={1}>
+
+        </Grid>
+        <Grid item sx={{}} sm={1} md={1}>
+
+        </Grid>
+      </Grid>
     </Grid>
   )
 }
