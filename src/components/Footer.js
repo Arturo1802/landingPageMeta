@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Chip, Divider, Typography, Button, Card, CardContent, CardMedia, Grid } from '@mui/material'
 import MetaLogo from './meta logo.jpg'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -8,6 +8,11 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer = () => {
+  const [reload, setReload] = useState(false)
+
+  useEffect(() => {
+    setReload(!reload) 
+  },[])
   return (
     <Grid container sx={{ backgroundColor: 'white', }} >
       <Grid item sm={12} md={10}>
@@ -35,17 +40,16 @@ const Footer = () => {
           letterSpacing: 'rem',
           color: '#000000', wordBreak: 'break-all'
         }}>
-          <LocationOnIcon sx={{ color: '#097FFA', fontSize: 40 }} />Av. Francisco I.Madero 251, Zona Centro, Aguascalientes, Ags, C.P 20000 <br />
+          <LocationOnIcon sx={{ color: '#097FFA', fontSize: 40 }} />Av. Francisco I. Madero 251, Zona Centro, Aguascalientes, Ags, C.P 20000 <br />
           <LocationOnIcon sx={{ color: '#097FFA', fontSize: 40 }} />Av. Presidente Mazaryk 29, Polanco, Ciudad de México <br />
           <LocalPhoneIcon sx={{ color: '#097FFA', fontSize: 40 }} /> --------- <br />
           <br />
-          Social Media: <FacebookIcon sx={{ color: '#097FFA', fontSize: 40 }} href=''/>&emsp;
-          <InstagramIcon  sx={{ color: '#097FFA', fontSize: 40 }}  href='' />&emsp;
-          <LinkedInIcon sx={{ color: '#097FFA', fontSize: 40 }}  href='' />&emsp;
-        </Typography>
-
+          Social Media: <a href='https://www.facebook.com/metalearninguniversity'><FacebookIcon sx={{ color: '#097FFA', fontSize: 40 }} /></a>&emsp;
+          <a href='https://instagram.com/metalearninguniversity?igshid=YmMyMTA2M2Y='><InstagramIcon  sx={{ color: '#097FFA', fontSize: 40 }} /></a>&emsp;
+          <a  href='https://www.linkedin.com/company/meta-learning-university/'><LinkedInIcon sx={{ color: '#097FFA', fontSize: 40 }}  /></a> &emsp;
+        </Typography> 
       </Grid>
-      <Divider style={{ margin: 'auto', marginTop: "-20vh" }}>
+      <Divider style={{ margin: 'auto', marginTop:(window.innerWidth < 885) ? "-20vh":'-10vh'}}>
         <Chip sx={{ height: 3, width: '90vw', background: "-webkit-linear-gradient(180deg,#2c2c2c  30.26%, #2c2c2c 100%);" }} label="&emsp;" />
       </Divider>
     </Grid>

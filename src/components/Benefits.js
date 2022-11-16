@@ -13,7 +13,7 @@ const [reload, setReload] = useState(false)
 
   useEffect(() => {
     setReload(!reload) 
-  })
+  },[])
   return (
     <Grid sx={{ transition: 'all .5s linear',marginTop:(window.innerWidth<885)?15:0, background:'url(/bftbg.png) center no-repeat' }} id="benefits" container>
       <Grid item sm={12} md={12}>

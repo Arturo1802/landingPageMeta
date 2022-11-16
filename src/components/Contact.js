@@ -9,7 +9,7 @@ const Contact = () => {
 
   useEffect(() => {
     setReload(!reload) 
-  })
+  },[])
   const [toSend, setToSend] = useState({
     from_name: '',
     from_mail: '',
@@ -19,10 +19,11 @@ const Contact = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     send(
-      'service_6lqbnpn',
-      'template_qymhqnm',
+      process.env.REACT_APP_MAIL_SERVICE,
+      process.env.REACT_APP_TEMPLATE_MAIL,
       toSend,
-      'xLT_eDmgCFxg59Avs'
+      process.env.REACT_APP_MAIL_PUBKEY
+      
     )
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
@@ -38,7 +39,7 @@ const Contact = () => {
 
   const inputstyle = { border: '2px solid #346BAB', borderRadius: 10, marginTop: 30, padding: 10, backgroundColor: '#346BAB', width: '80%', fontSize: 25, color: 'white' }
   return (
-    <Grid container sx={{ marginBottom: 0, }}>
+    <Grid container sx={{ marginBottom: 0, marginLeft:5}}>
       <Grid item sm={0} md={7} sx={{ height:(window.innerWidth<885)?0:500, marginTop:(window.innerWidth<885)?0: 35, visibility:(window.innerWidth<885)?'hidden':'visible' , paddingLeft:10}}>
         <img style={{height:'inherit'}} src={ContactImg} />
       </Grid>
@@ -54,7 +55,7 @@ const Contact = () => {
         </Typography>
         <br />
         <span style={{ fontSize: 20, fontStyle: 'italic', color: 'white' }}>En breve nos comunicaremos contigo</span> <br />
-        <form style={{ marginBottom:(window.innerWidth<885)?65:70}}>
+        <form style={{  marginBottom:(window.innerWidth<885)?65:70}}>
           <input name='from_name' value={toSend.from_name} onChange={handleChange} type="text" placeholder='Nombre' required style={inputstyle} /> <br />
           <input name='from_mail' value={toSend.from_mail} onChange={handleChange} type="email" placeholder='Correo Electrónico' required style={inputstyle} /> <br />
           <textarea 
