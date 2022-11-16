@@ -1,9 +1,15 @@
 import React from 'react'
 import { Chip, Divider, Typography, Button, Card, CardContent, CardMedia, Grid } from '@mui/material'
+import MetaLogo from './meta logo.jpg'
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import  FacebookIcon  from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
 const Footer = () => {
   return (
-    <Grid container sx={{ backgroundColor: 'white' }} >
-      <Grid item sm={0} md={2}></Grid>
+    <Grid container sx={{ backgroundColor: 'white', }} >
       <Grid item sm={12} md={10}>
         <Typography variant="h3" sx={{
           fontFamily: 'ubuntu',
@@ -15,18 +21,33 @@ const Footer = () => {
           &nbsp;
         </Typography>
         <Divider style={{ marginBottom: "5vh" }}>
-          <Chip sx={{ height: 3, width:'70vw', background: "-webkit-linear-gradient(180deg,#0587FF  30.26%, #0081FE 100%);" }} label="&emsp;" />
+          <Chip sx={{ height: 3, width: '70vw', background: "-webkit-linear-gradient(180deg,#0587FF  30.26%, #0081FE 100%);" }} label="&emsp;" />
         </Divider>
       </Grid>
-      <Grid item sm={5} md={5}> 
-        LOGO
+      <Grid item sm={0} md={7} sx={{ height: (window.innerWidth < 885) ? 0 : 500, marginTop: (window.innerWidth < 885) ? 0 : 10, visibility: (window.innerWidth < 885) ? 'hidden' : 'visible', paddingLeft: 25 }}>
+        <img style={{ padding: 4, height: 200, border: '1px dashed #000000' }} src={MetaLogo} />
       </Grid>
-      <Grid item sm={0} md={1}>
+      <Grid item sm={12} md={5}>
+        <Typography variant='body1' sx={{
+          marginTop: 10,
+          fontFamily: 'ubuntu',
+          fontWeight: 600,
+          letterSpacing: 'rem',
+          color: '#000000', wordBreak: 'break-all'
+        }}>
+          <LocationOnIcon sx={{ color: '#097FFA', fontSize: 40 }} />Av. Francisco I.Madero 251, Zona Centro, Aguascalientes, Ags, C.P 20000 <br />
+          <LocationOnIcon sx={{ color: '#097FFA', fontSize: 40 }} />Av. Presidente Mazaryk 29, Polanco, Ciudad de México <br />
+          <LocalPhoneIcon sx={{ color: '#097FFA', fontSize: 40 }} /> --------- <br />
+          <br />
+          Social Media: <FacebookIcon sx={{ color: '#097FFA', fontSize: 40 }} href=''/>&emsp;
+          <InstagramIcon  sx={{ color: '#097FFA', fontSize: 40 }}  href='' />&emsp;
+          <LinkedInIcon sx={{ color: '#097FFA', fontSize: 40 }}  href='' />&emsp;
+        </Typography>
 
       </Grid>
-      <Grid item sm={6} md={6}>
-        COntenido
-      </Grid>
+      <Divider style={{ margin: 'auto', marginTop: "-20vh" }}>
+        <Chip sx={{ height: 3, width: '90vw', background: "-webkit-linear-gradient(180deg,#2c2c2c  30.26%, #2c2c2c 100%);" }} label="&emsp;" />
+      </Divider>
     </Grid>
   )
 }

@@ -9,8 +9,6 @@ import { motion } from "framer-motion";
 import Contact from './components/Contact';
 import Us2 from './components/Us2';
 import Footer from './components/Footer';
-
-
 const theme = createTheme({
   palette: {
     secondary: {
