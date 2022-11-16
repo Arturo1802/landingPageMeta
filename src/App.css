@@ -47,5 +47,49 @@ h1{
     transform: rotate(360deg);
   }
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 1; /* Firefox */
+}
 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(255, 255, 255);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(255, 255, 255);
+}
  
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+@keyframes clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(25deg);
+  }
+}
+@keyframes counterclock {
+  from {
+    transform: rotate(25deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

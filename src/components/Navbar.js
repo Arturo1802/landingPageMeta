@@ -5,22 +5,39 @@ import { MenuItem, Tooltip, Button, Avatar, Container, Menu, Typography, Toolbar
 
 
 const button1 = {
-  mr: 0, 
+  mr: 0,
   fontFamily: 'ubuntu',
   fontWeight: 500,
   letterSpacing: '0rem',
   color: 'inherit',
-  textDecoration: 'none', 
+  textDecoration: 'none',
 }
 const button2 = {
-  mr: 0, 
+  mr: 0,
   fontFamily: 'ubuntu',
   fontWeight: 500,
   letterSpacing: 'rem',
   color: '#001245',
   textDecoration: 'none',
-}
-const titles = ['Nosotros', 'Oferta Educativa', 'Edutainers', 'Beneficios'];
+} 
+
+const titles=[
+  {
+    'name':'Nosotros',
+    'href':'#us' 
+  },
+  {
+    'name':'Oferta Educativa',
+    'href':'#offer' 
+  },
+  {
+    'name':'Edutainers',
+    'href':'#edutainers' 
+  },{
+    'name':'Beneficios',
+    'href':'#benefits' 
+  }
+]
 
 function Navbar() {
   const [anchorElement, setanchorElement] = React.useState(null);
@@ -39,68 +56,65 @@ function Navbar() {
 
 
   return (
-    <AppBar color="secondary" position="sticky" sx={{ width: "100%", maxHeight: 80 }}>
-      <Container sx={{ width: "100%" }} >
-        {
-          //Menu (texto desplegable)
-        }
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large" 
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar" anchorEl={anchorElement} anchorOrigin={{ vertical: 'bottom', horizontal: 'left', }}
-              keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right', }} open={Boolean(anchorElement)} onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' }, }}
-            >
-              {titles.map((page) => (
-                <MenuItem key={page}  onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-
-          </Box> 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+    <AppBar color="secondary" position="sticky" sx={{ width: "99vw", maxHeight: 80 }}> 
+      {
+        //Menu (texto desplegable)
+      }
+      <Toolbar disableGutters>
+        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
+          <IconButton
+            size="large"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar" anchorEl={anchorElement} anchorOrigin={{ vertical: 'bottom', horizontal: 'left', }}
+            keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right', }} open={Boolean(anchorElement)} onClose={handleCloseNavMenu}
+            sx={{ transition: 'all 1s linear', display: { xs: 'block', md: 'none' }, }}
+          >
             {titles.map((page) => (
-
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                href="#"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <Typography className='textGrad' sx={{
-                  mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'ubuntu', fontWeight: 600,
-                  letterSpacing: '0rem', color: 'inherit', textDecoration: 'none',
-                }} textAlign="center">
-                  {page}
-                </Typography>
-              </Button>
+              <MenuItem href={page.href} key={page} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">{page.name}</Typography>
+              </MenuItem>
             ))}
-          </Box>
-          {
-            //Navbar items
-          }
-          {
-            //Button box
-          }
-          <Box sx={{ marginRight: { xs: 0, md: '0%' }, display: "inline-block" }}>
-            <Button  style={{ color: 'white',border: "2px solid white", borderRadius: 15, marginRight: 20, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
-            {
-              login ? <>Sesion iniciada(?)</> : <Button style={{boxShadow: " 4px 4px 10px 5px #00B2FF40", backgroundColor: "white", borderRadius: 15, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>
-            }
+          </Menu>
 
-          </Box>
-        </Toolbar>
+        </Box>
 
-      </Container>
+        {//Menú flex
+        }
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          {titles.map((page) => (
 
+            <Button
+              key={page}
+              onClick={handleCloseNavMenu}
+              href={page.href}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              <Typography  className='textGrad' sx={{
+                mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'ubuntu', fontWeight: 600,
+                letterSpacing: '0rem', color: 'inherit', textDecoration: 'none',
+              }} textAlign="center">
+                {page.name}
+              </Typography>
+            </Button>
+          ))}
+        </Box>
+        {
+          //Navbar items
+        }
+        {
+          //Button box
+        }
+        <Box sx={{ position: 'relative', right: 40 }}>
+          <Button style={{ color: 'white', border: "2px solid white", borderRadius: 15, marginRight: 20, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
+          <Button href='https://metalearning.technology' style={{ boxShadow: " 4px 4px 10px 5px #00B2FF40", backgroundColor: "white", borderRadius: 15, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>
+          
+        </Box>
+      </Toolbar> 
     </AppBar>
   );
 }

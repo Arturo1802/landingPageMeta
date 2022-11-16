@@ -1,14 +1,16 @@
-
-import './App.css';
-//import VrArea from './components/VrArea'; 
+import './App.css'; 
 import Navbar from './components/Navbar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
- import Main from './components/Main';
-import Us from './components/Us';
-import Us2 from './components/Us2';
+import Main from './components/Main';  
 import Offer from './components/Offer';
 import Edutainers from './components/Edutainers';
 import Benefits from './components/Benefits';
+import { motion } from "framer-motion";
+import Contact from './components/Contact';
+import Us2 from './components/Us2';
+import Footer from './components/Footer';
+
+
 const theme = createTheme({
   palette: {
     secondary: {
@@ -20,16 +22,20 @@ const theme = createTheme({
   }
 
 });
-function App() {
+function App() { 
 
   return (
-    <ThemeProvider theme={theme} >
+    <ThemeProvider style={{overflowX:'hidden'}} theme={theme} >
       <Navbar/>
+
       <Main/>
-      <Us2  id="#nosotros"/>
-      <Offer id="#oferta"/> 
+
+      <Us2 />
+      <Offer /> 
       <Edutainers/>
       <Benefits/>
+      <Contact/>
+      <Footer/>
     </ThemeProvider>
   );
 }

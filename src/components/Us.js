@@ -18,7 +18,7 @@ const dots = {
  
 const Us = () => {
   return (
-    <Grid container >
+    <Grid container id="us">
       <Grid item sm={12} md={12}>
         <Typography variant="h3" sx={{
           fontFamily: 'ubuntu',

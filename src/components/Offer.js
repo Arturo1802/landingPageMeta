@@ -1,95 +1,77 @@
-import { Diversity1 } from '@mui/icons-material'
-import { Typography, Grid, Divider, Chip, Card, CardContent, CardActionArea, CardMedia, Button } from '@mui/material'
-import React from 'react'
-import ArrowBackIcon  from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon  from '@mui/icons-material/ArrowForward';
-import ReactSwipe from 'react-swipe';
+import { Typography, Grid, Divider, Chip } from '@mui/material'
+import React  from 'react'
+import sistemas from './sistemas.png';
+import admon from './admon.png';
+import Carreer from './Carreer'; 
+ 
 
 const carreras = [
   {
     "nombre": "Ing. en Sistemas Computacionales",
     "url": "",
-    "imagen": "https://i.kym-cdn.com/photos/images/newsfeed/002/074/984/dec.png"
+    "imagen": 'https://i.pinimg.com/236x/3a/fd/65/3afd658ff9862ead1d2c3d8a2bae2a73.jpg'
   },
   {
-    "nombre": "Lic. en Administracion de Empresas",
+    "nombre": "Licenciatura en Administracion de Empresas",
     "url": "",
     "imagen": "https://i.pinimg.com/550x/6f/64/bd/6f64bd8b62a495004ae3d3be0c686732.jpg"
   },
   {
-    "nombre": "?",
+    "nombre": "Licenciatura en Memes",
     "url": "",
     "imagen": "https://pbs.twimg.com/profile_images/1488682390977400833/7lb1xaM2_400x400.jpg"
   }
 ]
+const carreras2 = [
+  {
+    "nombre": "Licenciatura en Administracion de Empresas",
+    "descripcion": "Dentro de la Licenciatura en Administración de Empresas, serás capaz de adquirir conocimientos, tales como analizar, organizar, clarificar y dirigir los recursos con los que cuenta una empresa para alcanzar los objetivos propuestos.",
+    "imagen": admon
+  },
+  {
+    "nombre": "Ingenieria en Sistemas",
+    "descripcion": "Dentro de la Ingeniería en sistemas computacionales adquirirás habilidades de direccion y coordinación de proyectos computacionales dentro de cualquier organización, controlando los recursos funcionales y procesos de las aplicaciones.",
+    "imagen": sistemas
+  },
 
-const slideButton={
-  borderRadius:55,
-  background: 'radial-gradient(#2465C8, #7624C8)', 
-  paddingTop:'15px',
-  paddingBottom:'15px',
-
-}
+]
+ 
 const Offer = () => {
-  let reactSwipeEl;
+    
   return (
-    <Grid container>
-      <Grid sx={{
-        marginLeft: { xs: "20% ", md: 10 },
-        marginTop: { xs: 10, md: 35 },
-        marginBottom: 10
-      }} item sm={12} md={3}>
-        <Typography variant="h3" sx={{
-          fontFamily: 'ubuntu',
-          fontWeight: 600,
-          letterSpacing: 'rem',
-          color: '#FFFFFF', textAlign: "left"
-        }}>
-          Oferta Educativa
-        </Typography>
-        <Divider style={{ marginLeft: { sm: "0px", md: "-30%" }, marginBottom: "5vh" }}>
-          <Chip sx={{ height: 5, width: "250px", background: "-webkit-linear-gradient(180deg,#0587FF  30.26%, #2056A6 100%);" }} label="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" />
-        </Divider>
-        <div style={{textAlign:'center'}}>
-        <Button style={slideButton} onClick={() => reactSwipeEl.prev()}><ArrowBackIcon sx={{height:'35px',color:'white'}}/></Button>
-        <span>&nbsp;</span>
-        <Button style={slideButton}  onClick={() => reactSwipeEl.next()}><ArrowForwardIcon sx={{height:'35px',color:'white'}}/></Button>
-        </div>
-      </Grid>
-      <Grid item sm={0} md={2}>
+     
+      <Grid sx={{}} container id="offer">
+        <Grid sx={{
+          marginLeft: { xs: "20% ", md: 10 },
+          marginTop: { xs: 10, md: 25 },
+          marginBottom: 10
+        }} item sm={12} md={2}>
+          <Typography variant="h3" sx={{
+            fontFamily: 'ubuntu',
+            fontWeight: 600,
+            letterSpacing: 'rem',
+            color: '#FFFFFF', textAlign: "left"
+          }}>
+            Oferta Educativa
+          </Typography>
+          <Divider style={{ marginLeft: { sm: '-10vw', md: '-20vw' }, marginBottom: "5vh" }}>
+            <Chip sx={{ height: 5, width: "250px", background: "-webkit-linear-gradient(180deg,#0587FF  30.26%, #2056A6 100%);" }} label="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" />
+          </Divider>
 
-      </Grid>
-      <Grid item sm={12} md={6} sx={{ marginTop: { xs: 10, md: 10 }, }}>
-        <ReactSwipe
-          className="carousel"
-          swipeOptions={{ continuous: true,widthOfSiblingSlidePreview: 50,}} 
-          
-          ref={el => (reactSwipeEl = el)} >
-          {
-            carreras.map((item) => (
-              <Card sx={{ backgroundColor: 'rgba(0, 0, 0, 0.0)', color: "black",borderRadius:15, width:'30vw' }}>
-                <CardMedia
-                  component="img"   
-                  image={item.imagen}
-                  alt={item.nombre}
-                />
-                <CardContent style={{ position: "absolute", color: "white", bottom: 0, left: "50%", transform: "translateX(-50%)", }} sx={{ backgroundColor: 'rgba(0, 0, 0, 0.0)', textAlign: 'center' }}>
-                  <Typography gutterBottom variant="h5" component="div" sx={{
-                    fontFamily: 'ubuntu',
-                    fontWeight: 600,
-                    letterSpacing: 'rem',
-                    color: '#FFFFFF' 
-                  }}>
-                    {item.nombre}
-                  </Typography>
-                </CardContent>
-              </Card>
-            ))
-          }
+        </Grid>
+        <Grid item sm={0} md={1}>
 
-        </ReactSwipe>
-      </Grid>
-    </Grid>
+        </Grid>
+        <Grid item sm={12} md={7} sx={{ marginTop: { xs: 10, md: 10 }, }}>
+          <Grid container>
+            {
+              carreras2.map((item) => (
+                <Carreer item={item} />
+              ))
+            }
+          </Grid>
+        </Grid>
+      </Grid> 
   )
 }
 
