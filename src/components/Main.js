@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import { Box, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber'
 import Model from './/Meta.js'
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Tooltip } from '@mui/material';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -57,6 +57,7 @@ const Main = () => {
         marginTop: 5,
         marginBottom: 10, border: 5, borderColor: 'rgba(40,100,255,.0)', borderRadius: 4, height: { xs: 300, md: 500 }
       }} item sm={12} md={5} >
+        <Tooltip title="Arrastra el mouse!!" placement='top' arrow>
         <Canvas camera={{ position: [-0.1, -0.1, 0.85] }} style={{ borderRadius: 12, }}  >
           <OrbitControls autoRotate="true" autoRotateSpeed="0" />
           <spotLight intensity={200} angle={2} penumbra={0} position={[0.3, 0.5, 1.4]} castShadow />
@@ -65,7 +66,8 @@ const Main = () => {
             <Model />
           </Suspense>
         </Canvas>
-      </Grid>
+        </Tooltip>
+      </Grid> 
     </Grid>
   )
 }

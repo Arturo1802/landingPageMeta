@@ -48,8 +48,8 @@ const Carreer = (props) => {
                         <br />
                         {props.item.descripcion} 
                     </Typography>
-                    <Button style={{display: inside? 'none':'',position:'relative',top:150, color: 'white', border: "2px solid white", borderRadius: 20, paddingLeft: 20, paddingRight: 23 }}>
-                        Ver Más
+                    <Button href='#contact' style={{display: inside? 'none':'',position:'relative',top:150, color: 'white', border: "2px solid white", borderRadius: 20, paddingLeft: 20, paddingRight: 23 }}>
+                        Más Info.
                     </Button>
                     
                 </CardContent>

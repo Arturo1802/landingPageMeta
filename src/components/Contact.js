@@ -8,7 +8,7 @@ const Contact = () => {
   const [reload, setReload] = useState(false)
 
   useEffect(() => {
-    setReload(!reload) 
+    window.addEventListener("resize", setReload )
   },[])
   const [toSend, setToSend] = useState({
     from_name: '',
@@ -39,12 +39,12 @@ const Contact = () => {
 
   const inputstyle = { border: '2px solid #346BAB', borderRadius: 10, marginTop: 30, padding: 10, backgroundColor: '#346BAB', width: '80%', fontSize: 25, color: 'white' }
   return (
-    <Grid container sx={{ marginBottom: 0, marginLeft:5}}>
+    <Grid container sx={{ marginBottom: 0, marginLeft:0}}>
       <Grid item sm={0} md={7} sx={{ height:(window.innerWidth<885)?0:500, marginTop:(window.innerWidth<885)?0: 35, visibility:(window.innerWidth<885)?'hidden':'visible' , paddingLeft:10}}>
         <img style={{height:'inherit'}} src={ContactImg} />
       </Grid>
-      <Grid item sm={12} md={5}>
-        <Typography variant='h2' sx={{
+      <Grid item sm={12} md={5} sx={{paddingLeft:(window.innerWidth<885)?5:0}}>
+        <Typography id='contact' variant='h2' sx={{
           marginTop: 10,
           fontFamily: 'ubuntu',
           fontWeight: 600,
@@ -56,9 +56,10 @@ const Contact = () => {
         <br />
         <span style={{ fontSize: 20, fontStyle: 'italic', color: 'white' }}>En breve nos comunicaremos contigo</span> <br />
         <form style={{  marginBottom:(window.innerWidth<885)?65:70}}>
-          <input name='from_name' value={toSend.from_name} onChange={handleChange} type="text" placeholder='Nombre' required style={inputstyle} /> <br />
-          <input name='from_mail' value={toSend.from_mail} onChange={handleChange} type="email" placeholder='Correo Electrónico' required style={inputstyle} /> <br />
+          <input autocomplete="off" name='from_name' value={toSend.from_name} onChange={handleChange} type="text" placeholder='Nombre' required style={inputstyle} /> <br />
+          <input autocomplete="off" name='from_mail' value={toSend.from_mail} onChange={handleChange} type="email" placeholder='Correo Electrónico' required style={inputstyle} /> <br />
           <textarea 
+          autocomplete="off"
             name='message'
             value={toSend.message} 
             onChange={handleChange}

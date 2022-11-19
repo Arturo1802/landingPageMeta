@@ -110,7 +110,7 @@ function Navbar() {
           //Button box
         }
         <Box sx={{ position: 'relative', right: 40 }}>
-          <Button style={{ color: 'white', border: "2px solid white", borderRadius: 15, marginRight: 20, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
+          <Button href='#contact' style={{ color: 'white', border: "2px solid white", borderRadius: 15, marginRight: 20, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button1} >Contactar</Typography></Button>
           <Button href='https://metalearning.technology' style={{ boxShadow: " 4px 4px 10px 5px #00B2FF40", backgroundColor: "white", borderRadius: 15, paddingLeft: 20, paddingRight: 23 }}><Typography variant="h7" sx={button2}>Aula Virtual</Typography></Button>
           
         </Box>

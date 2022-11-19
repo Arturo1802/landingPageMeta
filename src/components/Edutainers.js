@@ -60,14 +60,15 @@ const Edutainers = () => {
                     </Typography>
                 </Grid>
                 <Grid sx={{ marginLeft: 'auto', }} item sm={12} md={11} >
-                    <Grid container sx={{ transition: 'all .5s linear', maxHeight: open ? '180vh' : '75vh', overflow: 'hidden' }}>
+                    <Grid container sx={{ transition: 'all .5s linear', maxHeight: open ? '180vh' : '75vh', overflow: open? 'auto':'hidden' }}>
                         {
                             edutainer.map((item,key) => (
                                 <Grid item sm={6} md={4} sx={{ padding: 'auto', margin: 'auto', backgroundColor: 'rgba(255, 0, 0, 0.0)', }}>
                                     <Card key={key} sx={{ maxWidth: 300, marginTop: 10, backgroundColor: 'rgba(255, 0, 0, 0.0)', }}>
                                         <CardMedia
                                             component="img"
-                                            image={item.imagen}
+                                            image={item.imagen}En breve nos comunicaremos contigo
+
                                             alt={item.nombre}
                                         />
                                         <CardContent sx={{ backgroundColor: 'rgba(0, 0, 0, 0.0)', textAlign: 'center' }}>

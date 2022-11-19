@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Contact from './components/Contact';
 import Us2 from './components/Us2';
 import Footer from './components/Footer';
+import StartNowDiv from './components/StartNowDiv';
 const theme = createTheme({
   palette: {
     secondary: {
@@ -24,16 +25,15 @@ function App() {
 
   return (
     <ThemeProvider style={{overflowX:'hidden'}} theme={theme} >
-      <Navbar/>
-
-      <Main/>
-
+      <Navbar/> 
+      <Main/> 
       <Us2 />
       <Offer /> 
       <Edutainers/>
       <Benefits/>
-      <Contact/>
-      <Footer/>
+      <StartNowDiv/>
+      <Contact/> 
+      <Footer/> 
     </ThemeProvider>
   );
 }
